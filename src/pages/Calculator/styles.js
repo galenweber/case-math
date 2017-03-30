@@ -6,25 +6,52 @@ const styles = {
     flex: 1,
   },
   problemAnswerRow: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
     padding: 10,
     paddingTop: 20,
     paddingBottom: 20,
+    paddingRight: 10,
+    paddingLeft: 10,
     borderColor: '#d9d9de',
     borderStyle: 'solid',
     borderWidth: 1,
   },
+  redBox: {
+    backgroundColor: 'red',
+    position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    left: 0,
+    top: 0,
+    flex: 1,
+  },
   problemRow: {
+    flex: 1,
+    textAlign: 'right',
     fontSize: 20,
     color: 'rgba(0, 0, 0, 0.54)',
   },
   answerRow: {
+    flex: 1,
+    textAlign: 'right',
     color: 'rgba(0, 0, 0, 0.87)',
     fontSize: 30,
   },
   row: {
-    textAlign: 'right',
-    padding: 10,
+    padding: 5,
+    flexDirection: 'row',
   },
+  streakLabel: {
+    width: 50,
+    textAlign: 'center',
+    alignSelf: 'flex-end',
+  },
+  streakValue: {
+    width: 50,
+    textAlign: 'center',
+    alignSelf: 'flex-start',
+  },
+
 
   numPad: {
     flex: 1,
@@ -66,6 +93,24 @@ const styles = {
   enterBtn: {
     backgroundColor: '#B39DDB',
   },
+
+  viewAnimated: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+
+
+  viewAnimatedRed: {
+    backgroundColor: '#FF8A80',
+  },
+
+  viewAnimatedGold: {
+    backgroundColor: '#FFE57F',
+  },
+
 
 }
 

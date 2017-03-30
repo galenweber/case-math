@@ -1,15 +1,13 @@
 export default [
   {
     name: 'Large Number Addition',
-    operator: 'x',
-    leftOperand() {
-      return 12;
+    operator: '+',
+    genOperands() {
+      return [ Math.floor(Math.random()*10), Math.floor(Math.random()*10) ]
     },
-    rightOperand() {
-      return 43;
-    },
+
     answer(left, right) {
-      return left*right;
+      return Number(left)+Number(right);
     }
   },
   {
