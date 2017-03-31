@@ -9,6 +9,9 @@ import sets from '../../services/sets';
 import styles from './styles';
 
 export default class Home extends React.Component {
+  static navigationOptions = {
+    title: 'Math Sets',
+  };
   render() {
     const { navigation } = this.props;
     return (

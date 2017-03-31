@@ -31,6 +31,11 @@ const styles = {
     fontSize: 20,
     color: 'rgba(0, 0, 0, 0.54)',
   },
+  answerPlaceholder: {
+    fontSize: 30,
+    opacity: 0,
+  },
+
   answerRow: {
     flex: 1,
     textAlign: 'right',

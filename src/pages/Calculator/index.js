@@ -12,34 +12,54 @@ import styles from './styles';
 
 export default class Calculator extends React.Component {
 
+  static navigationOptions = {
+    title: ({ state }) => `${state.params.name}`,
+  };
+
   constructor(props) {
     super(props);
 
-    const operands = this.props.navigation.state.params.genOperands();
+    const set = this.props.navigation.state.params.generateSet();
 
     this.state = {
-      input: '\t',
-      leftOperand: operands[0],
-      rightOperand: operands[1],
+      input: '',
+      streak: 0,
+      leftOperand: set.left,
+      rightOperand: set.right,
+      answer: set.answer,
       fadeRedAnim: new Animated.Value(0),
       fadeGoldAnim: new Animated.Value(0),
     };
   }
 
-  submit() {
-        console.log('submit runs');
+  onPress(num) {
     const {
+      input,
       answer,
-      genOperands,
+    } = this.state;
+
+    this.setState({ input: input + num });
+
+  }
+
+  submit() {
+    const {
+      generateSet,
     } = this.props.navigation.state.params;
 
     const {
       leftOperand,
       rightOperand,
+      answer,
       input,
+      streak,
     } = this.state;
 
-    if (answer(leftOperand, rightOperand) === Number(input)) {
+    console.log('number answer is ', Number(answer))
+    console.log('number input is ',input)
+
+    if (Number(answer) === Number(input)) {
+      this.setState({ streak: streak + 1 });
       Animated.sequence([
         Animated.timing(          // Uses easing functions
            this.state.fadeGoldAnim,    // The value to drive
@@ -58,13 +78,15 @@ export default class Calculator extends React.Component {
           }            // Configuration
         )
       ]).start();
-      const operands = genOperands();
+      const set = generateSet();
       this.setState({
         input: '\t',
-        leftOperand: operands[0],
-        rightOperand: operands[1],
+        leftOperand: set.left,
+        rightOperand: set.right,
+        answer: set.answer,
       });
     } else {
+      this.setState({ streak: 0 });
       Animated.sequence([
         Animated.timing(          // Uses easing functions
            this.state.fadeRedAnim,    // The value to drive
@@ -95,6 +117,7 @@ export default class Calculator extends React.Component {
 
     const {
       input,
+      streak,
       leftOperand,
       rightOperand,
     } = this.state;
@@ -143,7 +166,13 @@ export default class Calculator extends React.Component {
           >
             <Text
               style={styles.streakValue}
-            >13</Text>
+            >{streak}</Text>
+            <Text
+              style={styles.answerPlaceholder}
+            >
+              |
+            </Text>
+
             <Text
               style={[
                 styles.answerRow
@@ -159,7 +188,7 @@ export default class Calculator extends React.Component {
           >
             {[7,8,9].map(e => (
               <TouchableOpacity
-                onPress={() => this.setState({ input: input + e})}
+                onPress={this.onPress.bind(this, e)}
                 style={styles.numSquare}
               >
                 <Text style={styles.numText}>{e}</Text>
@@ -171,7 +200,7 @@ export default class Calculator extends React.Component {
           >
             {[4,5,6].map(e => (
               <TouchableOpacity
-                onPress={() => this.setState({ input: input + e})}
+                onPress={this.onPress.bind(this, e)}
                 style={styles.numSquare}
               >
                 <Text style={styles.numText}>{e}</Text>
@@ -183,7 +212,7 @@ export default class Calculator extends React.Component {
           >
             {[1,2,3].map(e => (
               <TouchableOpacity
-                onPress={() => this.setState({ input: input + e})}
+                onPress={this.onPress.bind(this, e)}
                 style={styles.numSquare}
               >
                 <Text style={styles.numText}>{e}</Text>
@@ -195,7 +224,7 @@ export default class Calculator extends React.Component {
           >
             {[0].map(e => (
               <TouchableOpacity
-                onPress={() => this.setState({ input: input + e})}
+                onPress={this.onPress.bind(this, e)}
                 style={styles.numSquare}
               >
                 <Text style={styles.numText}>{e}</Text>
