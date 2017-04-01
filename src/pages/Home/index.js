@@ -17,6 +17,8 @@ export default class Home extends React.Component {
     return (
       <View style={styles.container}>
         {sets.map(e => <SetPanel
+          color={e.color}
+          key={e.name}
           name={e.name}
           navigation={navigation}
           set={e}

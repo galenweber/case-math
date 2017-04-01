@@ -11,7 +11,10 @@ export default function SetPanel(props) {
   const { navigate } = props.navigation;
   return (
     <TouchableOpacity
-      style={styles.container}
+      style={[
+        styles.container,
+        { backgroundColor: props.color }
+      ]}
       onPress={() => navigate('Calculator',props.set)}
     >
       <Text style={styles.title}>

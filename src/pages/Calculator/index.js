@@ -55,9 +55,6 @@ export default class Calculator extends React.Component {
       streak,
     } = this.state;
 
-    console.log('number answer is ', Number(answer))
-    console.log('number input is ',input)
-
     if (Number(answer) === Number(input)) {
       this.setState({ streak: streak + 1 });
       Animated.sequence([
@@ -188,6 +185,7 @@ export default class Calculator extends React.Component {
           >
             {[7,8,9].map(e => (
               <TouchableOpacity
+                key={e}
                 onPress={this.onPress.bind(this, e)}
                 style={styles.numSquare}
               >
@@ -200,6 +198,7 @@ export default class Calculator extends React.Component {
           >
             {[4,5,6].map(e => (
               <TouchableOpacity
+                key={e}
                 onPress={this.onPress.bind(this, e)}
                 style={styles.numSquare}
               >
@@ -212,6 +211,7 @@ export default class Calculator extends React.Component {
           >
             {[1,2,3].map(e => (
               <TouchableOpacity
+                key={e}
                 onPress={this.onPress.bind(this, e)}
                 style={styles.numSquare}
               >
@@ -224,6 +224,7 @@ export default class Calculator extends React.Component {
           >
             {[0].map(e => (
               <TouchableOpacity
+                key={e}
                 onPress={this.onPress.bind(this, e)}
                 style={styles.numSquare}
               >

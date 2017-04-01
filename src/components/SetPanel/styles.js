@@ -18,8 +18,8 @@ const styles = {
   title: {
     textAlign: 'center',
     fontSize: 20,
-    fontFamily: 'Helvetica',
-    fontWeight: "200",
+    fontFamily: 'Montserrat-Medium',
+    color: 'white',
   }
 }
 

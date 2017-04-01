@@ -4,6 +4,7 @@ const styles = {
   container: {
     alignSelf: 'stretch',
     flex: 1,
+    backgroundColor: 'white',
   },
   problemAnswerRow: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -30,16 +31,21 @@ const styles = {
     textAlign: 'right',
     fontSize: 20,
     color: 'rgba(0, 0, 0, 0.54)',
+    fontFamily: 'Montserrat-Light',
   },
   answerPlaceholder: {
     fontSize: 30,
     opacity: 0,
+    fontFamily: 'Montserrat-Light',
   },
 
   answerRow: {
     flex: 1,
     textAlign: 'right',
-    color: 'rgba(0, 0, 0, 0.87)',
+    //color: 'rgba(0, 0, 0, 0.87)',
+    color: '#00C853',
+    fontWeight: '700',
+    fontFamily: 'Montserrat-Medium',
     fontSize: 30,
   },
   row: {
@@ -49,11 +55,13 @@ const styles = {
   streakLabel: {
     width: 50,
     textAlign: 'center',
+    fontFamily: 'Montserrat-Light',
     alignSelf: 'flex-end',
   },
   streakValue: {
     width: 50,
     textAlign: 'center',
+    fontFamily: 'Montserrat-Light',
     alignSelf: 'flex-start',
   },
 
@@ -83,7 +91,8 @@ const styles = {
 
   numText: {
     fontSize: 25,
-    fontWeight: '200',
+    //fontWeight: '200',
+    fontFamily: 'Montserrat-Light',
     color: 'rgba(0, 0, 0, 0.87)',
   },
 
@@ -96,7 +105,7 @@ const styles = {
   },
 
   enterBtn: {
-    backgroundColor: '#B39DDB',
+    backgroundColor: '#00C853',
   },
 
   viewAnimated: {
